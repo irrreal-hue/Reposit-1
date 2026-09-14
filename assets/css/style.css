@@ -261,7 +261,10 @@ img { display: block; max-width: 100%; }
   .portfolio__grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .portfolio__grid { grid-template-columns: 1fr; }
+  .portfolio__grid { gap: 2px; }
+  .project-card__media { aspect-ratio: 1 / 1; }
+  .project-card__info h3 { font-size: 14px; }
+  .project-card__info p { font-size: 12px; }
 }
 
 .project-card { background: #14120f; }
