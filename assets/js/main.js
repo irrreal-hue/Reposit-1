@@ -2,14 +2,16 @@
   "use strict";
 
   var galleries = {
-    kotor: {
-      title: "Загородный дом в Черногории",
-      sub: "Котор, 275 м² · вид на море",
+    "chistye-prudy": {
+      title: "Фахверк в КП «Чистые пруды»",
+      sub: "Чистые пруды, 3",
       images: [
-        { src: "assets/img/projects/kotor/04.svg", alt: "Гостиная-столовая" },
-        { src: "assets/img/projects/kotor/02.svg", alt: "Крытый бассейн" },
-        { src: "assets/img/projects/kotor/03.svg", alt: "Зона отдыха у бассейна" },
-        { src: "assets/img/projects/kotor/01.svg", alt: "Сауна" }
+        { src: "assets/img/projects/chistye-prudy/04.svg", alt: "Гостиная-столовая" },
+        { src: "assets/img/projects/chistye-prudy/06.svg", alt: "Кухня с мраморным островом" },
+        { src: "assets/img/projects/chistye-prudy/05.svg", alt: "Гостиная с камином" },
+        { src: "assets/img/projects/chistye-prudy/02.svg", alt: "Крытый бассейн" },
+        { src: "assets/img/projects/chistye-prudy/03.svg", alt: "Зона отдыха у бассейна" },
+        { src: "assets/img/projects/chistye-prudy/01.svg", alt: "Сауна" }
       ]
     }
   };
