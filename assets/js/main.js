@@ -100,18 +100,8 @@
 
   document.querySelectorAll("[data-gallery]").forEach(function (card) {
     var key = card.dataset.gallery;
-
-    card.querySelector(".project-card__open").addEventListener("click", function () {
+    card.querySelector(".project-card__media").addEventListener("click", function () {
       open(key, 0);
-    });
-    card.querySelector(".project-card__media > img:first-child").addEventListener("click", function () {
-      open(key, 0);
-    });
-    card.querySelectorAll(".project-card__thumbs img").forEach(function (thumb) {
-      thumb.addEventListener("click", function (e) {
-        e.stopPropagation();
-        open(key, parseInt(thumb.dataset.index, 10) || 0);
-      });
     });
   });
 
