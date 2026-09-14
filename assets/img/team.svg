@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1400" viewBox="0 0 1200 1400">
-  <rect width="1200" height="1400" fill="none"/>
-  <circle cx="450" cy="500" r="260" fill="#d9cdb8" opacity="0.25"/>
-  <circle cx="750" cy="560" r="220" fill="#c9a227" opacity="0.2"/>
-  <text x="50%" y="95%" fill="#8a7f6f" font-family="sans-serif" font-size="30" text-anchor="middle">замени на team.png (портрет, прозрачный фон)</text>
-</svg>
