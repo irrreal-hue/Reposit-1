@@ -6,11 +6,11 @@
       title: "Фахверк в КП «Чистые пруды»",
       sub: "Чистые пруды, 3",
       images: [
-        { src: "assets/img/projects/chistye-prudy/04.svg", alt: "Гостиная-столовая" },
-        { src: "assets/img/projects/chistye-prudy/06.svg", alt: "Кухня с мраморным островом" },
-        { src: "assets/img/projects/chistye-prudy/05.svg", alt: "Гостиная с камином" },
-        { src: "assets/img/projects/chistye-prudy/02.svg", alt: "Крытый бассейн" },
-        { src: "assets/img/projects/chistye-prudy/03.svg", alt: "Зона отдыха у бассейна" },
+        { src: "assets/img/projects/chistye-prudy/04.webp", alt: "Гостиная-столовая" },
+        { src: "assets/img/projects/chistye-prudy/06.webp", alt: "Кухня с мраморным островом" },
+        { src: "assets/img/projects/chistye-prudy/05.webp", alt: "Гостиная с камином" },
+        { src: "assets/img/projects/chistye-prudy/02.webp", alt: "Крытый бассейн" },
+        { src: "assets/img/projects/chistye-prudy/03.webp", alt: "Зона отдыха у бассейна" },
         { src: "assets/img/projects/chistye-prudy/01.svg", alt: "Сауна" }
       ]
     }
