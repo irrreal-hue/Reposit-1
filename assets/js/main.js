@@ -132,7 +132,9 @@
   });
 
   // CTA button: Marquiz not wired up yet.
-  document.querySelector('[data-cta="calc"]').addEventListener("click", function () {
-    console.log("TODO: подключить Marquiz");
+  document.querySelectorAll('[data-cta="calc"]').forEach(function (button) {
+    button.addEventListener("click", function () {
+      console.log("TODO: подключить Marquiz");
+    });
   });
 })();
