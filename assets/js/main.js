@@ -2,6 +2,13 @@
   "use strict";
 
   var galleries = {
+    "wellton-towers": {
+      title: "Квартира в ЖК Wellton Towers",
+      sub: "60 м²",
+      images: [
+        { src: "assets/img/projects/wellton-towers/01.jpg", alt: "Квартира в ЖК Wellton Towers — гостиная" }
+      ]
+    },
     "chistye-prudy": {
       title: "Фахверк в КП «Чистые пруды»",
       sub: "Чистые пруды, 3",
@@ -79,6 +86,7 @@
     current.key = key;
     var gallery = galleries[key];
     titleEl.textContent = gallery.title;
+    lightbox.classList.toggle("lightbox--single", gallery.images.length === 1);
     subEl.textContent = gallery.sub;
     renderThumbs(key);
 
@@ -100,10 +108,40 @@
 
   document.querySelectorAll("[data-gallery]").forEach(function (card) {
     var key = card.dataset.gallery;
-    card.querySelector(".project-card__media").addEventListener("click", function () {
+    var media = card.querySelector(".project-card__media");
+    media.setAttribute("role", "button");
+    media.tabIndex = 0;
+    media.setAttribute("aria-label", "Открыть проект: " + galleries[key].title);
+    media.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open(key, 0);
+      }
+    });
+    media.addEventListener("click", function () {
       open(key, 0);
     });
   });
+
+  // Keep eight cards visible initially; reveal future projects in batches of eight.
+  var cards = Array.from(document.querySelectorAll(".portfolio__grid > .project-card"));
+  var moreButton = document.querySelector("[data-show-more]");
+  var moreNote = document.getElementById("portfolio-more-note");
+  var visibleCount = 8;
+  function updateProjects() {
+    cards.forEach(function (card, index) { card.hidden = index >= visibleCount; });
+    moreButton.disabled = visibleCount >= cards.length;
+    moreNote.hidden = !moreButton.disabled;
+    moreNote.textContent = cards.length > 8 ? "Все проекты показаны" : "Новые проекты скоро появятся";
+  }
+  moreButton.addEventListener("click", function () {
+    var firstNewCard = cards[visibleCount];
+    visibleCount += 8;
+    updateProjects();
+    var target = firstNewCard && firstNewCard.querySelector('[role="button"]');
+    if (target) target.focus();
+  });
+  updateProjects();
 
   lightbox.querySelectorAll("[data-close]").forEach(function (el) {
     el.addEventListener("click", close);

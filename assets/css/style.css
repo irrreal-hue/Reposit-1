@@ -317,6 +317,36 @@ img { display: block; max-width: 100%; }
 }
 .project-card:hover .project-card__open { background: rgba(244, 241, 234, 0.28); transform: rotate(45deg); }
 
+.project-card[hidden] { display: none; }
+.project-card--placeholder { background: var(--paper-dim); }
+.project-card--placeholder:nth-child(even) { background: #e5dfd3; }
+.project-card--placeholder .project-card__media { cursor: default; border: 1px solid var(--line); }
+.project-card--placeholder .project-card__info { color: var(--ink-soft); }
+.project-card--placeholder .project-card__info p { color: var(--ink-soft); }
+.project-card__number {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  font-size: clamp(28px, 3vw, 64px);
+  font-weight: 400;
+  color: #a59a85;
+}
+.project-card__media:focus-visible { outline: 3px solid var(--gold); outline-offset: -5px; }
+.portfolio__more { padding: 36px var(--gutter) 0; text-align: center; }
+.portfolio__more-button {
+  padding: 16px 32px;
+  background: transparent;
+  border: 1px solid var(--gold-dark);
+  color: var(--ink);
+}
+.portfolio__more-button:disabled { cursor: default; border-color: #c6bfb1; color: #777064; }
+.portfolio__more-button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.portfolio__more p { margin: 14px 0 0; font-size: 13px; color: var(--ink-soft); }
+.lightbox--single .lightbox__nav, .lightbox--single .lightbox__thumbs { display: none; }
+.lightbox--single .lightbox__stage { aspect-ratio: 4 / 5; flex: 0 1 auto; }
+.lightbox--single .lightbox__panel { width: min(88vw, 62vh, 720px); }
+.lightbox--single .lightbox__img { object-fit: contain; }
+
 /* Final invitation and footer */
 .project-start {
   display: grid;
