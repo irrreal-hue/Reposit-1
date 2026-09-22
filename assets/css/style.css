@@ -343,9 +343,6 @@ img { display: block; max-width: 100%; }
 .portfolio__more-button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
 .portfolio__more p { margin: 14px 0 0; font-size: 13px; color: var(--ink-soft); }
 .lightbox--single .lightbox__nav, .lightbox--single .lightbox__thumbs { display: none; }
-.lightbox--single .lightbox__stage { aspect-ratio: 4 / 5; flex: 0 1 auto; }
-.lightbox--single .lightbox__panel { width: min(88vw, 62vh, 720px); }
-.lightbox--single .lightbox__img { object-fit: contain; }
 
 /* Final invitation and footer */
 .project-start {
@@ -436,16 +433,18 @@ img { display: block; max-width: 100%; }
 .lightbox__backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(10, 9, 7, 0.78);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 9, 7, 0.94);
+  backdrop-filter: blur(4px);
 }
 .lightbox__panel {
+  --gallery-footer: 76px;
   position: relative;
   z-index: 2;
-  width: min(92vw, 1100px);
-  max-height: 88vh;
-  display: flex;
-  flex-direction: column;
+  width: 92vw;
+  height: 92vh;
+  height: 92dvh;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) var(--gallery-footer);
   transform: translateY(18px) scale(0.98);
   opacity: 0;
   transition: transform 0.4s var(--ease), opacity 0.4s var(--ease);
@@ -456,22 +455,19 @@ img { display: block; max-width: 100%; }
 }
 .lightbox__stage {
   position: relative;
-  flex: 1;
   min-height: 0;
-  border-radius: var(--radius-md);
+  border-radius: 8px;
   overflow: hidden;
   background: #0c0b09;
-  aspect-ratio: 16 / 10;
 }
 .lightbox__img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   opacity: 0;
-  transform: scale(1.02);
-  transition: opacity 0.45s var(--ease), transform 0.5s var(--ease);
+  transition: opacity 0.45s var(--ease);
 }
 .lightbox__img.is-active { opacity: 1; transform: scale(1); z-index: 1; }
 
@@ -497,7 +493,7 @@ img { display: block; max-width: 100%; }
 
 .lightbox__nav {
   position: absolute;
-  top: 50%;
+  top: calc((100% - var(--gallery-footer)) / 2);
   transform: translateY(-50%);
   z-index: 3;
   width: 48px;
@@ -514,30 +510,30 @@ img { display: block; max-width: 100%; }
   transition: background 0.25s var(--ease), transform 0.25s var(--ease);
 }
 .lightbox__nav:hover { background: rgba(16,14,11,0.7); }
-.lightbox__nav--prev { left: -8px; }
-.lightbox__nav--next { right: -8px; }
-@media (min-width: 720px) {
-  .lightbox__nav--prev { left: -60px; }
-  .lightbox__nav--next { right: -60px; }
-}
+.lightbox__nav--prev { left: 12px; }
+.lightbox__nav--next { right: 12px; }
 
 .lightbox__footer {
-  margin-top: 18px;
+  padding-top: 12px;
+  min-width: 0;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   color: #f4f1ea;
-  flex-wrap: wrap;
+  overflow: hidden;
 }
-.lightbox__caption { display: flex; flex-direction: column; gap: 2px; }
+.lightbox__caption { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.lightbox__caption strong, .lightbox__caption span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .lightbox__caption strong { font-size: 16px; }
 .lightbox__caption span { font-size: 13px; color: #b9b2a2; }
 
-.lightbox__thumbs { display: flex; gap: 8px; }
+.lightbox__thumbs { display: flex; gap: 8px; overflow-x: auto; min-width: 0; max-width: 55%; flex-shrink: 0; }
 .lightbox__thumbs img {
   width: 52px;
   height: 52px;
+  flex-shrink: 0;
   object-fit: cover;
   border-radius: 10px;
   cursor: pointer;
@@ -549,6 +545,10 @@ img { display: block; max-width: 100%; }
 
 @media (max-width: 640px) {
   .hero { padding-top: 120px; }
-  .lightbox__panel { width: 94vw; max-height: 82vh; }
-  .lightbox__footer { flex-direction: column; align-items: flex-start; }
+  .lightbox__panel { --gallery-footer: 120px; width: 92vw; height: 88vh; height: 88dvh; }
+  .lightbox__footer { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 10px; }
+  .lightbox__thumbs { max-width: 100%; }
+  .lightbox__nav { width: 40px; height: 40px; }
+  .lightbox__nav--prev { left: 6px; }
+  .lightbox__nav--next { right: 6px; }
 }
